@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
 
-export default class TodoItem extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  removeTodo(id) {
-    this.props.removeTodo(id);
-  }
-
+class Todo extends Component {
   render() {
     return (
       <div className="todoWrapper">
         <button
           className="removeTodo"
-          onClick={(e) => this.removeTodo(this.props.id)}
+          onClick={() => this.props.removeTodo(this.props.index)}
           >
           Remove
         </button>
@@ -23,3 +15,5 @@ export default class TodoItem extends Component {
     )
   }
 }
+
+export default Todo;

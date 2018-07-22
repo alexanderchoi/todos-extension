@@ -1,53 +1,46 @@
 import React, { Component } from 'react';
-import './App.css';
-import Header from './Header';
-import TodoInput from './TodoInput';
-import TodoItem from './TodoItem';
+import '../App.css';
+import Form from './Form';
+import List from './List';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       todos: [
-        {id: 0, text: "Gym in the Morning"},
-        {id: 1, text: "Tan at the Pool"},
-        {id: 2, text: "Fold the Laundry"}
-      ],
-      nextId: 3,
+        {text: "Gym in the Morning", done: false},
+        {text: "Tan at the Pool", done: false},
+        {text: "Fold the Laundry", done: false}
+      ]
     }
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
   }
 
   addTodo(todoText) {
-    let todos = this.state.todos.slice();
-    todos.push({id: this.state.nextId, text: todoText});
-    this.setState({
-      todos: todos,
-      nextId: ++this.state.nextId
-    })
-    console.log(`id is: ` + this.state.nextId);
+    let todos = this.state.todos;
+    todos.push({text: todoText, done: false});
+    this.setState({ todos });
   }
 
-  removeTodo(id) {
-    this.setState({
-      todos: this.state.todos.filter((todo, index) => todo.id !== id)
-    });
+  removeTodo(index) {
+    let todos = this.state.todos;
+    todos[index].done = !todos[index].done;
+    this.setState({ todos });
   }
 
   render() {
     return (
       <div className="App">
-        <div className="todo-wrapper">
-          <Header />
-          <TodoInput todoText="" addTodo={this.addTodo} />
-          <ul>
-            {
-              this.state.todos.map((todo) => {
-                return <TodoItem todo={todo} key={todo.id} id={todo.id} removeTodo={this.removeTodo} />
-              })
-            }
-          </ul>
+        <div className="todosWrapper">
+          <h1>TO DO LIST:</h1>
+          <Form
+            addTodo={this.addTodo}
+          />
+          <List
+            todos={this.state.todos}
+            removeTodo={this.removeTodo}
+          />
         </div>
       </div>
     );

@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
 
-export default class TodoInput extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {value: ''};
+    this.state = {
+      inputValue: ''
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.addTodo = this.addTodo.bind(this);
   }
 
-  handleChange(newValue) {
-    this.setState({value: newValue.target.value});
+  handleChange(event) {
+    this.setState({ inputValue: event.target.value });
   }
 
   addTodo(todo) {
     if (todo.length > 0) {
       this.props.addTodo(todo);
-      this.setState({value: ''});
+      this.setState({inputValue: ''});
     }
   }
 
@@ -26,13 +28,15 @@ export default class TodoInput extends Component {
       <div>
         <input
           type="text"
-          value={this.state.value}
+          value={this.state.inputValue}
           onChange={this.handleChange}
         />
-        <button onClick={() => this.addTodo(this.state.value)}>
+        <button onClick={() => this.addTodo(this.state.inputValue)}>
           Submit
         </button>
       </div>
     );
   }
 }
+
+export default Form;
