@@ -5,18 +5,16 @@ class List extends Component {
   render() {
     return (
       <div className="List">
-        {this.props.todos.map((todo, index) => {
-          if (!todo.done) {
-            return (
-              <Todo
-                key={index}
-                index={index}
-                todo={todo}
-                removeTodo={this.props.removeTodo}
-              />
-            )
-          }
-        })}
+        {this.props.todos.map((todo, index) =>
+          !todo.done ?
+            <Todo
+              key={index}
+              index={index}
+              todo={todo}
+              removeTodo={this.props.removeTodo}
+            />
+            : null
+        )}
       </div>
     )
   }

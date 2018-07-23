@@ -15,7 +15,8 @@
     "128": "logo-small.png"
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ]
 }
 

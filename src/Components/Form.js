@@ -12,15 +12,15 @@ class Form extends Component {
     this.addTodo = this.addTodo.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ inputValue: event.target.value });
-  }
-
   addTodo(todo) {
     if (todo.length > 0) {
       this.props.addTodo(todo);
       this.setState({inputValue: ''});
     }
+  }
+
+  handleChange(event) {
+    this.setState({ inputValue: event.target.value });
   }
 
   render() {
@@ -31,7 +31,9 @@ class Form extends Component {
           value={this.state.inputValue}
           onChange={this.handleChange}
         />
-        <button onClick={() => this.addTodo(this.state.inputValue)}>
+        <button
+          onClick={() => this.addTodo(this.state.inputValue)}
+        >
           Submit
         </button>
       </div>

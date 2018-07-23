@@ -31,7 +31,21 @@ class App extends Component {
 
   render() {
     return (
+      
       <div className="App">
+      <div>
+        <input id="testInput" type="text" placeholder="Your Name">
+        </input>
+        <button
+          id="testSubmit"
+          onClick={function() {
+            var value = document.getElementById("testInput").value;
+            console.log(value);
+          }}
+        >
+          Submit Name
+        </button>
+      </div>
         <div className="todosWrapper">
           <h1>TO DO LIST:</h1>
           <Form
