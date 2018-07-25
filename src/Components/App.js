@@ -14,8 +14,9 @@ class App extends Component {
 
   addTodo = this.addTodo.bind(this);
   removeTodo = this.removeTodo.bind(this);
+  loadTodos = this.loadTodos.bind(this);
 
-  async componentDidMount() {
+  componentDidMount() {
     this.loadTodos();
   }
 
@@ -33,8 +34,7 @@ class App extends Component {
     var loadedTodos;
     storage.get('todos', function (result) {
       loadedTodos = result.todos;
-      console.log(`result.todos = ${result.todos}`);
-      console.log(`loaded todos = ${loadedTodos}`);
+      console.log(result.todos);
     });
     if (loadedTodos = {}) {
       loadedTodos = [
@@ -45,7 +45,6 @@ class App extends Component {
     }
     console.log(`loadedTodos = ${loadedTodos}`);
     this.setState({ todos: loadedTodos });
-    console.log(`finished loadTodos`);
   }
 
   removeTodo(index) {
