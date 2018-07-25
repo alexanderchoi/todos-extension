@@ -1,6 +1,19 @@
-var name = 'alex'
-var submit = document.getElementById('spendAmount');
+$(function() {
+	$('#spendAmount').click(function() {
+		chrome.storage.sync.get('total', function(budget) {
+			var newTotal = 0;
+			if (budget.total) {
+				newTotal += parseInt(budget.total);
+			}
 
-submit.onclick(function() {
-    console.log(`name equals ${name} and submit equals ${submit}`);
-})
+			var amount = $('#amount').val();
+			if (amount) {
+				newTotal += parseInt(amount);
+			}
+			chrome.storage.sync.set({'total': newTotal});
+
+			$('#total').text(newTotal);
+			$('#amount').val('');
+		})
+	})
+});
