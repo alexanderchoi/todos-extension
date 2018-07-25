@@ -5,7 +5,7 @@ import '../App.css';
 import Form from './Form';
 import List from './List';
 
-const storage = window.chrome.storage;
+const storage = window.chrome.storage.sync;
 
 class App extends Component {
   constructor(props) {
@@ -26,8 +26,8 @@ class App extends Component {
     let todos = this.state.todos;
     todos.push({text: todoText, done: false});
     this.setState({ todos });
-    storage.sync.set({'todos': todos});
-    storage.sync.get('todos', function(result) {
+    storage.set({'todos': todos});
+    storage.get('todos', function(result) {
       console.log(result.todos);
     })
   }
@@ -36,8 +36,8 @@ class App extends Component {
     let todos = this.state.todos;
     todos[index].done = !todos[index].done;
     this.setState({ todos });
-    storage.sync.set({'todos': todos});
-    storage.sync.get('todos', function(result) {
+    storage.set({'todos': todos});
+    storage.get('todos', function(result) {
       console.log(result.todos);
     })
   }
