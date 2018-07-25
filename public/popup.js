@@ -2,6 +2,10 @@ var spendAmount = document.getElementById('spendAmount');
 var amount = document.getElementById('amount');
 var total = document.getElementById('total');
 
+chrome.storage.sync.get('total',function(budget) {
+	total.innerHTML = budget.total;
+})
+
 spendAmount.addEventListener('click', function() {
 	chrome.storage.sync.get('total', function(budget) {
 		var newTotal = 0;
@@ -14,7 +18,7 @@ spendAmount.addEventListener('click', function() {
 		}
 		chrome.storage.sync.set({'total': newTotal});
 
-		total.text = newTotal;
+		total.innerHTML = newTotal;
 		amount.value = '';
 	})
 });
