@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      inputValue: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.addTodo = this.addTodo.bind(this);
+  state = {
+    inputValue: ''
   }
+
+  handleChange = this.handleChange.bind(this);
+  addTodo = this.addTodo.bind(this);
 
   addTodo(todo) {
     if (todo.length > 0) {

@@ -8,18 +8,15 @@ import List from './List';
 const storage = window.chrome.storage.sync;
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: [
-        {text: "Gym in the Morning", done: false},
-        {text: "Tan at the Pool", done: false},
-        {text: "Fold the Laundry", done: false}
-      ]
-    }
+  state = {
+    todos: []
+  }
 
-    this.addTodo = this.addTodo.bind(this);
-    this.removeTodo = this.removeTodo.bind(this);
+  addTodo = this.addTodo.bind(this);
+  removeTodo = this.removeTodo.bind(this);
+
+  async componentDidMount() {
+    this.loadTodos();
   }
 
   addTodo(todoText) {
@@ -30,6 +27,25 @@ class App extends Component {
     storage.get('todos', function(result) {
       console.log(result.todos);
     })
+  }
+
+  loadTodos() {
+    var loadedTodos;
+    storage.get('todos', function (result) {
+      loadedTodos = result.todos;
+      console.log(`result.todos = ${result.todos}`);
+      console.log(`loaded todos = ${loadedTodos}`);
+    });
+    if (loadedTodos = {}) {
+      loadedTodos = [
+        {text: "Gym in the Morning", done: false},
+        {text: "Tan at the Pool", done: false},
+        {text: "Fold the Laundry", done: false}
+    ];
+    }
+    console.log(`loadedTodos = ${loadedTodos}`);
+    this.setState({ todos: loadedTodos });
+    console.log(`finished loadTodos`);
   }
 
   removeTodo(index) {
