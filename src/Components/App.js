@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+
 import '../App.css';
+
 import Form from './Form';
 import List from './List';
+
+const storage = window.chrome.storage;
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +17,7 @@ class App extends Component {
         {text: "Fold the Laundry", done: false}
       ]
     }
+
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
   }
@@ -21,31 +26,25 @@ class App extends Component {
     let todos = this.state.todos;
     todos.push({text: todoText, done: false});
     this.setState({ todos });
+    storage.sync.set({'todos': todos});
+    storage.sync.get('todos', function(result) {
+      console.log(result.todos);
+    })
   }
 
   removeTodo(index) {
     let todos = this.state.todos;
     todos[index].done = !todos[index].done;
     this.setState({ todos });
+    storage.sync.set({'todos': todos});
+    storage.sync.get('todos', function(result) {
+      console.log(result.todos);
+    })
   }
 
   render() {
     return (
-      
       <div className="App">
-      <div>
-        <input id="testInput" type="text" placeholder="Your Name">
-        </input>
-        <button
-          id="testSubmit"
-          onClick={function() {
-            var value = document.getElementById("testInput").value;
-            console.log(value);
-          }}
-        >
-          Submit Name
-        </button>
-      </div>
         <div className="todosWrapper">
           <h1>TO DO LIST:</h1>
           <Form
