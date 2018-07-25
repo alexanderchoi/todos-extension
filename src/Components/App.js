@@ -21,9 +21,6 @@ class App extends Component {
     let todos = this.state.todos;
     todos.push({text: todoText, done: false});
     this.setState({ todos });
-    chrome.storage.sync.set({'todos': todos},function() {
-      console.log(`added todo and set added to chrome storage`);
-    })
   }
 
   removeTodo(index) {
