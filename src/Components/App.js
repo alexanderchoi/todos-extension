@@ -22,12 +22,10 @@ class App extends Component {
 
   addTodo(todoText) {
     let todos = this.state.todos;
-    storage.set({'todos': todos});
-    storage.get('todos', function(result) {
-      console.log(result.todos);
-    })
     todos.push({text: todoText, done: false});
-    this.setState({ todos: todos });
+    storage.set({'todos': todos});
+    this.setState({ todos });
+    console.log(this.state.todos);
   }
 
   loadTodos() {
@@ -48,10 +46,8 @@ class App extends Component {
     let todos = this.state.todos;
     todos[index].done = !todos[index].done;
     storage.set({'todos': todos});
-    storage.get('todos', function(result) {
-      console.log(result.todos);
-    })
     this.setState({ todos });
+    console.log(this.state.todos);
   }
 
   render() {
@@ -73,3 +69,4 @@ class App extends Component {
 }
 
 export default App;
+
