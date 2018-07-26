@@ -13,6 +13,7 @@ class App extends Component {
   }
 
   addTodo = this.addTodo.bind(this);
+  clearAllTodos = this.clearAllTodos.bind(this);
   doTodo = this.doTodo.bind(this);
   loadTodos = this.loadTodos.bind(this);
 
@@ -26,6 +27,12 @@ class App extends Component {
     storage.set({'todos': todos});
     this.setState({ todos });
     console.log(this.state.todos);
+  }
+
+  clearAllTodos() {
+    let todos = [];
+    storage.set({ "todos": todos });
+    this.setState({ todos });
   }
 
   loadTodos() {
@@ -58,6 +65,10 @@ class App extends Component {
           <Form
             addTodo={this.addTodo}
           />
+          <button
+          onClick={ this.clearAllTodos }
+          >Clear All Todos
+          </button>
           <List
             todos={this.state.todos}
             doTodo={this.doTodo}

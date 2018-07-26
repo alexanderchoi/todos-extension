@@ -5,8 +5,8 @@ class Form extends Component {
     inputValue: ''
   }
 
-  handleChange = this.handleChange.bind(this);
   addTodo = this.addTodo.bind(this);
+  handleChange = this.handleChange.bind(this);
 
   addTodo(todo) {
     if (todo.length > 0) {
