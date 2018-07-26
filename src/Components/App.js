@@ -21,10 +21,10 @@ class App extends Component {
   }
 
   addTodo(todoText) {
-    let todos = this.state.todos;
-    todos.push({text: todoText, done: false});
-    this.setState({ todos });
-    storage.set({'todos': todos});
+    let newTodos = this.state.todos;
+    newTodos.push({text: todoText, done: false});
+    this.setState({ todos: newTodos });
+    storage.set({'todos': newTodos});
     storage.get('todos', function(result) {
       console.log(result.todos);
     })
