@@ -21,40 +21,37 @@ class App extends Component {
   }
 
   addTodo(todoText) {
-    let newTodos = this.state.todos;
-    newTodos.push({text: todoText, done: false});
-    this.setState({ todos: newTodos });
-    storage.set({'todos': newTodos});
+    let todos = this.state.todos;
+    storage.set({'todos': todos});
     storage.get('todos', function(result) {
       console.log(result.todos);
     })
+    todos.push({text: todoText, done: false});
+    this.setState({ todos: todos });
   }
 
   loadTodos() {
-    var loadedTodos;
     storage.get('todos', function (result) {
-      loadedTodos = result.todos;
-      console.log(result.todos);
-    });
-    if (loadedTodos = {}) {
-      loadedTodos = [
-        {text: "Gym in the Morning", done: false},
-        {text: "Tan at the Pool", done: false},
-        {text: "Fold the Laundry", done: false}
-    ];
-    }
-    console.log(`loadedTodos = ${loadedTodos}`);
-    this.setState({ todos: loadedTodos });
+      var loadedTodos = result.todos;
+      if (loadedTodos === undefined) {
+        loadedTodos = [
+          {text: "Gym in the Morning", done: false},
+          {text: "Tan at the Pool", done: false},
+          {text: "Fold the Laundry", done: false}
+        ];
+      }
+      this.setState({ todos: loadedTodos });
+    }.bind(this));
   }
 
   removeTodo(index) {
     let todos = this.state.todos;
     todos[index].done = !todos[index].done;
-    this.setState({ todos });
     storage.set({'todos': todos});
     storage.get('todos', function(result) {
       console.log(result.todos);
     })
+    this.setState({ todos });
   }
 
   render() {
