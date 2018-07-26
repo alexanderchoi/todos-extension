@@ -12,7 +12,7 @@ class List extends Component {
               key={index}
               index={index}
               todo={todo}
-              removeTodo={this.props.removeTodo}
+              doTodo={this.props.doTodo}
             />
             : null
         )}

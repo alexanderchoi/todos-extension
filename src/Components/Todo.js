@@ -5,8 +5,8 @@ class Todo extends Component {
     return (
       <div className="todoWrapper">
         <button
-          className="removeTodo"
-          onClick={() => this.props.removeTodo(this.props.index)}
+          className="doTodo"
+          onClick={() => this.props.doTodo(this.props.index)}
           >
           Remove
         </button>

@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   addTodo = this.addTodo.bind(this);
-  removeTodo = this.removeTodo.bind(this);
+  doTodo = this.doTodo.bind(this);
   loadTodos = this.loadTodos.bind(this);
 
   componentDidMount() {
@@ -44,7 +44,7 @@ class App extends Component {
     }.bind(this));
   }
 
-  removeTodo(index) {
+  doTodo(index) {
     let todos = this.state.todos;
     todos[index].done = !todos[index].done;
     storage.set({'todos': todos});
@@ -64,7 +64,7 @@ class App extends Component {
           />
           <List
             todos={this.state.todos}
-            removeTodo={this.removeTodo}
+            doTodo={this.doTodo}
           />
         </div>
       </div>
