@@ -1,5 +1,9 @@
-.body {
-    font-family: Helvetica;
-    font-size: 32px;
-    background-color: blue;
+h1 {
+	font-size: 5em;
+	text-align: center;
+}
+
+.App {
+	margin: 0 auto;
+	width: 50%;
 }

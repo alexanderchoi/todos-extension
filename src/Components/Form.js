@@ -33,10 +33,10 @@ class Form extends Component {
           type="text"
           value={this.state.inputValue}
           onChange={this.handleChange}
+          onKeyUp={ this.handleKeyUp }
         />
         <button
           onClick={() => this.addTodo(this.state.inputValue)}
-          onKeyUp={ this.handleKeyUp }
         >
           Submit
         </button>
