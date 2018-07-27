@@ -7,16 +7,23 @@ class Form extends Component {
 
   addTodo = this.addTodo.bind(this);
   handleChange = this.handleChange.bind(this);
+  handleKeyUp = this.handleKeyUp.bind(this);
 
   addTodo(todo) {
     if (todo.length > 0) {
       this.props.addTodo(todo);
-      this.setState({inputValue: ''});
+      this.setState( {inputValue: ''} );
     }
   }
 
   handleChange(event) {
     this.setState({ inputValue: event.target.value });
+  }
+
+  handleKeyUp(event) {
+    if (event.keyCode === 13) {
+      this.addTodo(this.state.inputValue);
+    }
   }
 
   render() {
@@ -29,6 +36,7 @@ class Form extends Component {
         />
         <button
           onClick={() => this.addTodo(this.state.inputValue)}
+          onKeyUp={ this.handleKeyUp }
         >
           Submit
         </button>

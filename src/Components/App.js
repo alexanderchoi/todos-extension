@@ -65,10 +65,7 @@ class App extends Component {
           <Form
             addTodo={this.addTodo}
           />
-          <button
-          onClick={ this.clearAllTodos }
-          >Clear All Todos
-          </button>
+          <button onClick={ this.clearAllTodos }>Clear All Todos</button>
           <List
             todos={this.state.todos}
             doTodo={this.doTodo}
@@ -80,4 +77,3 @@ class App extends Component {
 }
 
 export default App;
-
