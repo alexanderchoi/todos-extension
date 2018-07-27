@@ -61,13 +61,16 @@ class App extends Component {
     return (
       <div className="App">
         <div className="todosWrapper">
-          <h1>TO DO LIST:</h1>
+          <div className="todoHeader">
+          <h1>TO</h1>
+          <h1>DO</h1>
+          </div>
           <Form
             addTodo={this.addTodo}
           />
           <button
             onClick={this.clearAllTodos}
-            class="pure-button">
+            className="pure-button">
             Clear All Todos
           </button>
           <List

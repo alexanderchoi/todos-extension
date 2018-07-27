@@ -1,5 +1,12 @@
+.todoHeader {
+	padding: 35px 0px 15px 0px;
+}
+
 h1 {
-	font-size: 5em;
+	margin: 0 auto;
+	font-size: 3em;
+	letter-spacing: 0.02em;
+	line-height: .9em;
 	text-align: center;
 	color: #ffc85b;
 }
@@ -7,16 +14,25 @@ h1 {
 .App {
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: 35% 1fr 35%;
 }
 
 .todosWrapper {
 	margin: 0 auto;
-	grid-column: 2 / 5;
+	grid-column: 2 / 3;
 }
 
 .Form {
 	padding: 20px 0px;
+	grid-template-columns: repeat 5(1fr);
+}
+
+.inputField {
+	grid-column: 1 / 4;
+}
+
+.submitButton {
+	grid-column: 4 / 5;
 }
 
 .button-secondary {

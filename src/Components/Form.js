@@ -28,19 +28,23 @@ class Form extends Component {
 
   render() {
     return(
-      <div class="Form">
+      <div className="Form">
+      <div className="inputField">
         <input
           type="text"
           value={this.state.inputValue}
           onChange={this.handleChange}
           onKeyUp={ this.handleKeyUp }
-          class="pure-input-2-3"
+          className="pure-input"
         />
+      </div>
+      <div className="submitButton">
         <button
           onClick={() => this.addTodo(this.state.inputValue)}
-          class="pure-button button-secondary">
+          className="pure-button button-secondary">
           Enter
         </button>
+      </div>
       </div>
     );
   }
