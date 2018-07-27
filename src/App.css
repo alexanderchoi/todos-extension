@@ -6,11 +6,17 @@ h1 {
 
 .App {
 	margin: 0 auto;
-	width: 50%;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+}
+
+.todosWrapper {
+	margin: 0 auto;
+	grid-column: 2 / 5;
 }
 
 .Form {
-	height: 100px;
+	padding: 20px 0px;
 }
 
 .button-secondary {
