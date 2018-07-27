@@ -1,9 +1,18 @@
 h1 {
 	font-size: 5em;
 	text-align: center;
+	color: #ffc85b;
 }
 
 .App {
 	margin: 0 auto;
 	width: 50%;
+}
+
+.Form {
+	height: 100px;
+}
+
+.button-secondary {
+	background: #ffc85b;
 }

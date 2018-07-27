@@ -5,9 +5,8 @@ class Todo extends Component {
     return (
       <div className="todoWrapper">
         <button
-          className="doTodo"
-          onClick={() => this.props.doTodo(this.props.index)}
-          >
+          className="doTodo pure-button"
+          onClick={() => this.props.doTodo(this.props.index)}>
           Remove
         </button>
         {this.props.todo.text}
