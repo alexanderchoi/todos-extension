@@ -70,7 +70,7 @@ class App extends Component {
           />
           <button
             onClick={this.clearAllTodos}
-            className="pure-button">
+            className="clearAll pure-button">
             Clear All Todos
           </button>
           <List

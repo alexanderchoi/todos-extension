@@ -14,8 +14,17 @@ h1 {
 .App {
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 25% 1fr 25%;
+	grid-template-columns: 10% 1fr 10%;
 }
+/* 
+@media (max-width: 900px) {
+	.App {
+		grid-template-columns: 10% 1fr 10%;
+	}
+	.body {
+		background-color: blue;
+	}
+} */
 
 .todosWrapper {
 	margin: 0 auto;
@@ -24,21 +33,42 @@ h1 {
 
 .Form {
 	margin: 0 auto;
-	padding: 20px 0px;
-	grid-template-columns: repeat 5(1fr);
+	grid-column: 2 / 3;
+	padding: 30px 0px;
+	height: 80px;
 }
 
-.inputField {
-	grid-column: 1 / 4;
-	display: inline;
+.input {
+	float: left;
+	vertical-align: top;	
+	font-size: 2.5em;
+	letter-spacing: 0.02em;
+	padding-top: 10px;
 }
 
-.submitButton {
-	grid-column: 4 / 5;
-	display: inline;
-	font-size: 1.7em;
+.submit {
+	font-size: 2em;
+	height: 10px;
+	float: right;
+}
+
+.clearAll {
+	display: block;
+}
+
+.List {
+	font-size: 1.2em;
+	letter-spacing: 0.02em;
+}
+
+.todoWrapper:hover {
+	background-color: #ffc85b;
+}
+
+.todoText {
+	padding-left: 5px;
 }
 
 .button-secondary {
-	background: #ffc85b;
+	background: #ffd089;
 }

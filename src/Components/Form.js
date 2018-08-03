@@ -29,22 +29,22 @@ class Form extends Component {
   render() {
     return(
       <div className="Form">
-      <div className="inputField">
-        <input
-          type="text"
-          value={this.state.inputValue}
-          onChange={this.handleChange}
-          onKeyUp={ this.handleKeyUp }
-          className="pure-input "
-        />
-      </div>
-      <div className="submitButton">
-        <button
-          onClick={() => this.addTodo(this.state.inputValue)}
-          className="pure-button button-secondary">
-          Enter
-        </button>
-      </div>
+        <div className="input">
+          <input
+            type="text"
+            value={this.state.inputValue}
+            onChange={this.handleChange}
+            onKeyUp={ this.handleKeyUp }
+            className="pure-input "
+          />
+        </div>
+        <div className="submit">
+          <button
+            onClick={() => this.addTodo(this.state.inputValue)}
+            className="pure-button button-secondary">
+            Enter
+          </button>
+        </div>
       </div>
     );
   }

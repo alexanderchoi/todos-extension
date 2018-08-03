@@ -9,7 +9,7 @@ class Todo extends Component {
           onClick={() => this.props.doTodo(this.props.index)}>
           Remove
         </button>
-        {this.props.todo.text}
+        <span className="todoText">{this.props.todo.text}</span>
       </div>
     )
   }
