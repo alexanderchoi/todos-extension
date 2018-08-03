@@ -14,7 +14,7 @@ h1 {
 .App {
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 35% 1fr 35%;
+	grid-template-columns: 25% 1fr 25%;
 }
 
 .todosWrapper {
@@ -23,16 +23,20 @@ h1 {
 }
 
 .Form {
+	margin: 0 auto;
 	padding: 20px 0px;
 	grid-template-columns: repeat 5(1fr);
 }
 
 .inputField {
 	grid-column: 1 / 4;
+	display: inline;
 }
 
 .submitButton {
 	grid-column: 4 / 5;
+	display: inline;
+	font-size: 1.7em;
 }
 
 .button-secondary {

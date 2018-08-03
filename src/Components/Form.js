@@ -35,7 +35,7 @@ class Form extends Component {
           value={this.state.inputValue}
           onChange={this.handleChange}
           onKeyUp={ this.handleKeyUp }
-          className="pure-input"
+          className="pure-input "
         />
       </div>
       <div className="submitButton">
