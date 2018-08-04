@@ -16,15 +16,6 @@ h1 {
 	display: grid;
 	grid-template-columns: 10% 1fr 10%;
 }
-/* 
-@media (max-width: 900px) {
-	.App {
-		grid-template-columns: 10% 1fr 10%;
-	}
-	.body {
-		background-color: blue;
-	}
-} */
 
 .todosWrapper {
 	margin: 0 auto;
@@ -38,18 +29,18 @@ h1 {
 	height: 80px;
 }
 
-.input {
-	float: left;
+.inputWrapper {
 	vertical-align: top;	
-	font-size: 2.5em;
 	letter-spacing: 0.02em;
 	padding-top: 10px;
+	font-size: 2em;
 }
 
-.submit {
-	font-size: 2em;
-	height: 10px;
-	float: right;
+.inputField {
+	margin-top: 5px;
+	padding: 5px 8px;
+	width: 400px;
+	height: 39px;
 }
 
 .clearAll {
