@@ -19,6 +19,7 @@ class App extends Component {
 
   componentDidMount() {
     this.loadTodos();
+    console.log(this.todos);
   }
 
   addTodo(todoText) {
@@ -38,7 +39,7 @@ class App extends Component {
   loadTodos() {
     storage.get('todos', function (result) {
       var loadedTodos = result.todos;
-      if (loadedTodos === undefined) {
+      if (loadedTodos === [] || undefined) {
         loadedTodos = [
           {text: "Gym in the Morning", done: false},
           {text: "Tan at the Pool", done: false},
@@ -68,15 +69,17 @@ class App extends Component {
           <Form
             addTodo={this.addTodo}
           />
-          <button
-            onClick={this.clearAllTodos}
-            className="clearAll pure-button">
-            Clear All Todos
-          </button>
           <List
             todos={this.state.todos}
             doTodo={this.doTodo}
           />
+          <div className="clearAllWrapper">
+          <button
+            onClick={this.clearAllTodos}
+            className="clearAllButton pure-button">
+            Clear All Todos
+          </button>
+          </div>
         </div>
       </div>
     );

@@ -29,6 +29,11 @@ class Form extends Component {
   render() {
     return(
       <div className="Form">
+        <button
+            onClick={() => this.addTodo(this.state.inputValue)}
+            className="pure-button button-secondary submitButton">
+            Enter
+        </button>
         <div className="inputWrapper">
           <input
             type="text"
@@ -37,11 +42,6 @@ class Form extends Component {
             onKeyUp={ this.handleKeyUp }
             className="pure-input input inputField"
           />
-          <button
-            onClick={() => this.addTodo(this.state.inputValue)}
-            className="pure-button button-secondary submitButton">
-            Enter
-          </button>
         </div>
       </div>
     );
