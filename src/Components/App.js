@@ -36,6 +36,14 @@ class App extends Component {
     this.setState({ todos });
   }
 
+  doTodo(index) {
+    let todos = this.state.todos;
+    todos[index].done = !todos[index].done;
+    storage.set({'todos': todos});
+    this.setState({ todos });
+    console.log(this.state.todos);
+  }
+
   loadTodos() {
     storage.get('todos', function (result) {
       var loadedTodos = result.todos;
@@ -48,14 +56,6 @@ class App extends Component {
       }
       this.setState({ todos: loadedTodos });
     }.bind(this));
-  }
-
-  doTodo(index) {
-    let todos = this.state.todos;
-    todos[index].done = !todos[index].done;
-    storage.set({'todos': todos});
-    this.setState({ todos });
-    console.log(this.state.todos);
   }
 
   render() {
@@ -73,13 +73,13 @@ class App extends Component {
             todos={this.state.todos}
             doTodo={this.doTodo}
           />
-          <div className="clearAllWrapper">
+          {/* <div className="clearAllWrapper">
           <button
             onClick={this.clearAllTodos}
             className="clearAllButton pure-button">
-            Clear All Todos
+            Clear All
           </button>
-          </div>
+          </div> */}
         </div>
       </div>
     );

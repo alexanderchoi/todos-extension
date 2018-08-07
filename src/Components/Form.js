@@ -32,7 +32,7 @@ class Form extends Component {
         <button
             onClick={() => this.addTodo(this.state.inputValue)}
             className="pure-button button-secondary submitButton">
-            Enter
+            Add
         </button>
         <div className="inputWrapper">
           <input

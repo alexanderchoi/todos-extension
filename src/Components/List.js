@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Todo from './Todo';
+import TodoDone from './TodoDone';
 
 class List extends Component {
   render() {
@@ -15,6 +16,12 @@ class List extends Component {
               doTodo={this.props.doTodo}
             />
             : null
+            // <TodoDone
+            //   key={index}
+            //   index={index}
+            //   todo={todo}
+            //   doTodo={this.props.doTodo}
+            // />
         )}
       </div>
     )
