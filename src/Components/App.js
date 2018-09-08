@@ -24,8 +24,8 @@ class App extends Component {
 
   addTodo(todoText) {
     let todos = this.state.todos;
-    todos.push({text: todoText, done: false});
-    storage.set({'todos': todos});
+    todos.push({ text: todoText, done: false });
+    storage.set({ 'todos': todos });
     this.setState({ todos });
     console.log(this.state.todos);
   }
@@ -39,19 +39,20 @@ class App extends Component {
   doTodo(index) {
     let todos = this.state.todos;
     todos[index].done = !todos[index].done;
-    storage.set({'todos': todos});
+    storage.set({ 'todos': todos });
     this.setState({ todos });
     console.log(this.state.todos);
   }
 
   loadTodos() {
     storage.get('todos', function (result) {
-      var loadedTodos = result.todos;
-      if (loadedTodos === [] || undefined) {
+      if (result.todos) {
+        var loadedTodos = result.todos;
+      } else if (loadedTodos === [] || undefined) {
         loadedTodos = [
-          {text: "Gym in the Morning", done: false},
-          {text: "Tan at the Pool", done: false},
-          {text: "Fold the Laundry", done: false}
+          { text: "Gym in the Morning", done: false },
+          { text: "Tan at the Pool", done: false },
+          { text: "Fold the Laundry", done: false }
         ];
       }
       this.setState({ todos: loadedTodos });
@@ -63,8 +64,8 @@ class App extends Component {
       <div className="App">
         <div className="todosWrapper">
           <div className="todoHeader">
-          <h1>TO</h1>
-          <h1>DO</h1>
+            <h1>TO</h1>
+            <h1>DO</h1>
           </div>
           <Form
             addTodo={this.addTodo}
