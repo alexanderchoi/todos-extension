@@ -48,7 +48,7 @@ class App extends Component {
     storage.get('todos', function (result) {
       if (result.todos) {
         var loadedTodos = result.todos;
-      } else if (loadedTodos === [] || undefined) {
+      } else {
         loadedTodos = [
           { text: "Gym in the Morning", done: false },
           { text: "Tan at the Pool", done: false },
