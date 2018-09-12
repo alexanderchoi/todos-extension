@@ -1,13 +1,13 @@
 {
-    "name": "Todo Tab",
+    "name": "Mango Todo Tab",
     "description": "Todo list on every new tab",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 2,
     "chrome_url_overrides": {
       "newtab": "index.html"
     },
     "browser_action": {
-      "default_title": "Todo Tab"
+      "default_title": "Mango Todo Tab"
     },  
     "icons": {
       "16": "logo-small.png",
